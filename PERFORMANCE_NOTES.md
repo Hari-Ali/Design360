@@ -1,0 +1,7 @@
+# Build and browser verification
+
+- Use Node 22.12 or later. Run npm ci, npm run dev, npm run lint, npm run build and npm test. Serve dist/ from a static host root. Run npm run preview for local production preview.
+- The home route loads GSAP and Three.js separately. Hero and service WebGL start near the viewport, use bounded pixel density, pause out of view or in background tabs, and dispose resources on non-cached navigation. The hero has a local SVG fallback. Static text and project links remain available in reduced motion.
+- Before/after and section captures are in review-screenshots/. The captures show FORM's original assets and a lab Chromium rendering. Recording timestamps and unresolved content are documented in REFERENCE_AUDIT.md.
+- Chromium used software WebGL. Cross-browser behavior, hardware frame rates, and physical touch hardware remain unverified. The production build reports a size advisory for the lazy Three.js chunk, approximately 522 kB minified and 134 kB gzip.
+- Final results: TypeScript and the Vite production build passed, along with both repository tests. Chromium passed 64 route/viewport overflow checks with reduced motion, desktop and mobile drawer interactions, pointer and keyboard hold/release, simulated touch cancellation, the desktop work pin, services WebGL, the route belt departure and arrival, and browser-back scroll restoration. The 19 captures include desktop and mobile baselines, the rebuilt sections, and the route transition.
